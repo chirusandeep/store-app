@@ -33,7 +33,7 @@ public class Game extends StoreItem {
     }
 
     @Override
-    void returnProduct() {
+    void returnItem() {
         this.isReserved = false;
     }
 }

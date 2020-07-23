@@ -29,7 +29,7 @@ public class Movie extends StoreItem {
         this.isReserved = true;
     }
 
-    public void returnProduct() {
+    public void returnItem() {
         this.isReserved = false;
     }
 

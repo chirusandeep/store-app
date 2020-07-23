@@ -5,5 +5,5 @@ abstract class StoreItem {
 
     abstract int getId();
 
-    abstract void returnProduct();
+    abstract void returnItem();
 }

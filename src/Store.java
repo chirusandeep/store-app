@@ -28,4 +28,14 @@ public class Store {
         }
         System.out.println("Item with that Id not available!");
     }
+
+    public void returnItem(int inputReturnId) {
+        for (StoreItem item : this.items) {
+            if (item.getId() == inputReturnId) {
+                item.returnItem();
+                return;
+            }
+        }
+        System.out.println("Item with that Id not available!");
+    }
 }

@@ -13,7 +13,7 @@ public class StoreKeeper {
         System.out.println("============================================");
 
         while (true) {
-            System.out.print("1.List Items\n2.Reserve Item\n3.Exit\n");
+            System.out.print("1.List Items\n2.Reserve Item\n3.Return Item\n4.Exit\n");
             System.out.print("Enter a number>");
             Scanner input = new Scanner(System.in);
             int option = input.nextInt();
@@ -27,6 +27,11 @@ public class StoreKeeper {
                     this.store.reserveItem(inputId);
                     break;
                 case 3:
+                    System.out.print("Enter Return ID number");
+                    int inputReturnId = input.nextInt();
+                    this.store.returnItem(inputReturnId);
+                    break;
+                case 4:
                     System.exit(0);
                     break;
                 default:
