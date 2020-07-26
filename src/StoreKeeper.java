@@ -2,9 +2,11 @@ import java.util.Scanner;
 
 public class StoreKeeper {
     private final Store store;
+    private final Menu menu;
 
-    public StoreKeeper(Store store) {
+    public StoreKeeper(Store store, Menu menu) {
         this.store = store;
+        this.menu = menu;
     }
 
     public void run() {
@@ -12,32 +14,14 @@ public class StoreKeeper {
         System.out.println(String.format("Welcomes to %s", store.getName()));
         System.out.println("============================================");
 
+        // As there is an option to exit, the while loop will exit eventually!
+        //noinspection InfiniteLoopStatement
         while (true) {
-            System.out.print("1.List Items\n2.Reserve Item\n3.Return Item\n4.Exit\n");
+            this.menu.print();
             System.out.print("Enter a number>");
             Scanner input = new Scanner(System.in);
             int option = input.nextInt();
-            switch (option) {
-                case 1:
-                    this.store.listItems();
-                    break;
-                case 2:
-                    System.out.print("Enter ID number");
-                    int inputId = input.nextInt();
-                    this.store.reserveItem(inputId);
-                    break;
-                case 3:
-                    System.out.print("Enter Return ID number");
-                    int inputReturnId = input.nextInt();
-                    this.store.returnItem(inputReturnId);
-                    break;
-                case 4:
-                    System.exit(0);
-                    break;
-                default:
-                    System.out.println("Enter a valid menu Option.");
-            }
+            this.menu.chooseOption(option);
         }
-
     }
 }

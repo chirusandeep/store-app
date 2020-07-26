@@ -15,7 +15,22 @@ public class StoreApp {
         items.add(game);
         items.add(game2);
         Store store = new Store("Book Store", items);
-        StoreKeeper keeper = new StoreKeeper(store);
+
+        ListItemsAction listItemsAction = new ListItemsAction(store);
+        ReserveItemAction reserveItemAction = new ReserveItemAction(store);
+        ExitAction exitAction = new ExitAction();
+
+        MenuOption listItemsOption = new MenuOption(1, "List items", listItemsAction);
+        MenuOption reserveItemOption = new MenuOption(2, "Reserve items", reserveItemAction);
+        MenuOption exitOption = new MenuOption(3, "Exit", exitAction);
+
+        List<MenuOption> menuOptions = new LinkedList<>();
+        menuOptions.add(listItemsOption);
+        menuOptions.add(reserveItemOption);
+        menuOptions.add(exitOption);
+
+        Menu menu = new Menu(menuOptions);
+        StoreKeeper keeper = new StoreKeeper(store, menu);
         keeper.run();
     }
 }
