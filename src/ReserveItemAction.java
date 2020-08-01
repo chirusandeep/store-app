@@ -10,6 +10,7 @@ public class ReserveItemAction implements MenuAction {
     @Override
     public void execute() {
         Scanner input = new Scanner(System.in);
+        System.out.print("Enter ID to reserve>");
         int inputId = input.nextInt();
         this.store.reserveItem(inputId);
     }
